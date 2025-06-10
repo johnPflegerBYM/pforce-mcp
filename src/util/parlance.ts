@@ -35,7 +35,8 @@ export const Parlance = [
         parlance:'booster package opportunity',
         sObjectType:'Opportunity',
         definedBy: {
-            Id: 'IN (SELECT ID FROM OpportunityLineItem WHERE Product2.Name LIKE \'Booster%\''
-        }
+            RecordType:'Sales'
+        },
+        additionalContext:'These are opportunities that habe an opportunity line item with Booster in the name'
     }
 ]
