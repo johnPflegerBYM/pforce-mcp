@@ -32,6 +32,27 @@ export const Parlance = [
         }
     },
     {
+        parlance: 'china sales team',
+        sObjectType:'User',
+        definedBy: {
+            Profile:'AE (China)'
+        }
+    },
+    {
+        parlance: 'us sales team',
+        sObjectType:'User',
+        definedBy: {
+            Profile:'AE (US)'
+        }
+    },
+    {
+        parlance: 'philippines sales team',
+        sObjectType:'User',
+        definedBy: {
+            Profile:'AE (Philippine)'
+        }
+    },
+    {
         parlance:'booster package opportunity',
         sObjectType:'Opportunity',
         definedBy: {
