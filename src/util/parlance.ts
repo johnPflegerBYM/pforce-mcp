@@ -8,6 +8,14 @@ export const Parlance = [
         }
     },
     {
+        parlance:'onboarding cases',
+        sObjectType: 'Case',
+        definedBy: {
+            Type: 'Onboarding',
+            RecordType: 'Online Ordering Onboarding'
+        }
+    },
+    {
         parlance: 'slips or website slips',
         sObjectType:'Issue__c',
         definedBy: {
