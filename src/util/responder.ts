@@ -13,5 +13,4 @@ export class Responder {
             }]
         };
     }
-    static failure(response: Response) {}
 }
