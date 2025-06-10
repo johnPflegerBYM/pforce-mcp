@@ -11,7 +11,7 @@ Here's the config entry for claude.
         "salesforce": {
             "command": "node",
             "args": [
-                "/path/tp/pforce-mcp/build/index.js"
+                "/path/to/pforce-mcp/build/index.js"
             ],
             "env":{
                 "USERNAME":"<salesforce username>",
