@@ -5,7 +5,7 @@ Current Tools:
     * Query
 
 Here's the config entry for claude. 
-``
+````
 {
   "mcpServers": {
         "salesforce": {
