@@ -1,3 +1,8 @@
 # JetBrains IDE
 .idea/
+
+#build directory
 build/
+
+#dependencies
+node_modules/
