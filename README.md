@@ -1,8 +1,8 @@
 Beyond Menu Salesforce MCP
 
 Current Tools:
-    * Test Connection
-    * Query
+* Test Connection
+* Query
 
 Here's the config entry for claude. 
 ````
