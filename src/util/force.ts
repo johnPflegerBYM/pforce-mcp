@@ -26,4 +26,10 @@ export class Force {
         const res = await this.conn.query(query);
         return res;
     }
+
+    public static async update(args: any): Promise<any> {
+        await this.connect();
+        return await this.conn.sobject(args.sObjectType).update(args.package);
+    }
+
 }

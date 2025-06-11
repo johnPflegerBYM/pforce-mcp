@@ -48,6 +48,24 @@ server.setRequestHandler(ListToolsRequestSchema, async() => {
                     },
                     required: ['query']
                 }
+            },
+            {
+                name: 'update-records',
+                description: 'pass an array of records to be updated. Updates can be build through your interpretation of the prompt. There is a limit of 20 records, you can not update more than 20 records in a single call.  You can use these definitions to help: '+JSON.stringify(Parlance),
+                inputSchema: {
+                    type: "object",
+                    properties: {
+                        package:{
+                            type: 'array',
+                            description: "array of records to be updated. The records are JSON and the format should look like '[{ Id: 'recordId', fieldToBeUpdated : 'fieldValue' }]'"
+                        },
+                        sObjectType: {
+                            type: 'string',
+                            description:'the sobject type of the records that are being updated'
+                        }
+                    },
+                    required: ['package', 'sObjectType']
+                }
             }
         ]
     }
@@ -67,6 +85,12 @@ server.setRequestHandler(CallToolRequestSchema, async(request):Promise<any> => {
         case 'dynamic-query': {
             const args = request.params.arguments as { query: string; };
             const results = await Force.query(args.query);
+            return Responder.success(results);
+        }
+
+        case 'update-records': {
+            const args = request.params.arguments as { package: any; sObjectType: string; };
+            const results = await Force.update(args);
             return Responder.success(results);
         }
         default:

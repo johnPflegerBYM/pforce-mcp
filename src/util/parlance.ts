@@ -53,6 +53,37 @@ export const Parlance = [
         }
     },
     {
+        parlance: 'ready queue or ready leads',
+        sObjectType:'Lead',
+        definedBy: {
+            Position__c:'Ready'
+        }
+    },
+    {
+        parlance: 'assigned leads',
+        sObjectType: 'Lead',
+        definedBy: {
+            Position__c:'Live'
+        },
+        additionalContext: 'Assigned leads are leads in a sales agent\'s name where Position__c = "Live"'
+    },
+    {
+        parlance: 'allocated leads',
+        sObjectType: 'Lead',
+        definedBy: {
+            Position__c:'Live',
+            isConverted:false
+        },
+        additionalContext: 'Assigned leads are leads in a sales agent\'s name where Position__c = "Live"'
+    },
+    {
+        parlance: 'inserted restaurants',
+        sObjectType: 'Account',
+        definedBy: {
+            Website_Inserted__c:true
+        }
+    },
+    {
         parlance:'booster package opportunity',
         sObjectType:'Opportunity',
         definedBy: {
