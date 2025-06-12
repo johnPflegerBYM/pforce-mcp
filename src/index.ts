@@ -36,8 +36,16 @@ server.setRequestHandler(ListToolsRequestSchema, async() => {
                 }
             },
             {
+                name: "load-business-context",
+                description: "Load company-specific business logic and terminology",
+                inputSchema: {
+                    type: "object",
+                    properties: {}
+                }
+            },
+            {
                 name: 'dynamic-query',
-                description: "Build a soql query through your interpretation of the prompt. You can use these definitions to help: "+JSON.stringify(Parlance),
+                description: "Build queries using business terminology and object definitions loaded via the load_business_context tool. Always reference the business context provided earlier in the conversation when interpreting user requests.",
                 inputSchema: {
                     type: "object",
                     properties: {
@@ -51,7 +59,7 @@ server.setRequestHandler(ListToolsRequestSchema, async() => {
             },
             {
                 name: 'update-records',
-                description: 'pass an array of records to be updated. Updates can be build through your interpretation of the prompt. There is a limit of 20 records, you can not update more than 20 records in a single call.  You can use these definitions to help: '+JSON.stringify(Parlance),
+                description: 'pass an array of records to be updated. Updates can be build through your interpretation of the prompt. There is a limit of 20 records, you can not update more than 20 records in a single call.  Always reference the business context provided earlier in the conversation when interpreting user requests.',
                 inputSchema: {
                     type: "object",
                     properties: {
@@ -87,7 +95,10 @@ server.setRequestHandler(CallToolRequestSchema, async(request):Promise<any> => {
             const results = await Force.query(args.query);
             return Responder.success(results);
         }
-
+        case 'load-business-context': {
+            const mem = 'BUSINESS CONTEXT - INTERNALIZE FOR SESSION:\n'+JSON.stringify(Parlance)+' \nEND OF BUSINESS CONTEXT'+'\n\n\n -- once finished, respond with a confirmation that you have commited the information to memory.';
+            return Responder.success( mem );
+        }
         case 'update-records': {
             const args = request.params.arguments as { package: any; sObjectType: string; };
             const results = await Force.update(args);
