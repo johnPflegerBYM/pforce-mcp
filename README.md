@@ -21,4 +21,6 @@ Here's the config entry for claude.
         }
   }
 }
-``
+````
+
+When starting your conversion be sure to ask to "use salesforce and load business context". This will load all the company parlance and business context into the conversation.
