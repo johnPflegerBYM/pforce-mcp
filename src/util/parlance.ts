@@ -84,6 +84,14 @@ export const Parlance = [
         }
     },
     {
+        parlance: 'resolved slips',
+        sObjectType: 'Issue__c',
+        definedBy: {
+            Type__c:'GBP Website Slip',
+            Status__c:'Closed - Resolved'
+        }
+    },
+    {
         parlance:'booster package opportunity',
         sObjectType:'Opportunity',
         definedBy: {
