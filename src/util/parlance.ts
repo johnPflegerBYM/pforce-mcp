@@ -5,7 +5,22 @@ export const Parlance = [
         definedBy: {
             RecordType:'Sales',
             Type:'New Business'
-        }
+        },
+        additionalContext: [
+            'sales opportunities are new business opportunities and are generally defined by their line items',
+        ]
+    },
+    {
+        parlance:'Accounts',
+        sObjectType:'Account',
+        definedBy: {
+            RecordType:'Single Restaurant',
+        },
+        additionalContext: [
+            'accounts to our business are restaurants',
+            'BM_ID__c is the account number field for an account',
+            'accounts all have a unique BM_ID__c identifier field which is a 6 digit number. At times you may be asked to locate a record by their BM_ID__c. '
+        ]
     },
     {
         parlance:'onboarding cases',
@@ -21,7 +36,9 @@ export const Parlance = [
         definedBy: {
             Type__c:'GBP Website Slip'
         },
-        additionalContext:'Status__c is used to determine where these are in the progress of being worked'
+        additionalContext:[
+             'Status__c is used to determine where these are in the progress of being worked'
+        ]
     },
     {
         parlance:'upsell opportunity',
@@ -49,7 +66,7 @@ export const Parlance = [
         parlance: 'philippines sales team',
         sObjectType:'User',
         definedBy: {
-            Profile:'AE (Philippine)'
+            Profile:'AE (Philippines)'
         }
     },
     {
@@ -65,7 +82,9 @@ export const Parlance = [
         definedBy: {
             Position__c:'Live'
         },
-        additionalContext: 'Assigned leads are leads in a sales agent\'s name where Position__c = "Live"'
+        additionalContext: [
+            'Assigned leads are leads in a sales agent\'s name where Position__c = "Live"'
+        ]
     },
     {
         parlance: 'allocated leads',
@@ -74,7 +93,9 @@ export const Parlance = [
             Position__c:'Live',
             isConverted:false
         },
-        additionalContext: 'Assigned leads are leads in a sales agent\'s name where Position__c = "Live"'
+        additionalContext: [
+            'Assigned leads are leads in a sales agent\'s name where Position__c = "Live"'
+        ]
     },
     {
         parlance: 'inserted restaurants',
@@ -88,8 +109,38 @@ export const Parlance = [
         sObjectType: 'Issue__c',
         definedBy: {
             Type__c:'GBP Website Slip',
-            Status__c:'Closed - Resolved'
-        }
+            Status__c:'Closed Resolved'
+        },
+        additionalContext: [
+            'slips can be Closed Resolved when they are successfully completed or Closed UnResolved if we are closing the issue without a resolution'
+        ]
+    },
+    {
+        parlance: 'talk time',
+        sObjectType: 'Task',
+        definedBy: {
+            Type:'Call'
+        },
+        additionalContext: [
+            'Talk Time is the sum of the total call durations for a cohort during a period of time.',
+            'talk time should use the field: CallDurationInSeconds',
+            'talk time should be converted in minutes'
+        ]
+    },
+    {
+        parlance: 'creation rate or sales creation rate',
+        additionalContext: [
+            'This requires two queries and some math.',
+            'the soql query for getting leads starts like: "SELECT COUNT_DISTINCT(WhoId) FROM Task WHERE Type="Call"...',
+            'the formula is number of converted accounts / number of unique leads called in a given time period',
+            'converted accounts soql starts like: "SELECT COUNT_DISTINCT(ConvertedAccountId) ConvertedAccounts FROM Lead WHERE IsConverted = true"'
+        ]
+    },
+    {
+        parlance: 'link to a record',
+        additionalContext: [
+            'when creating a link to a record use the following as the base url: "https://beyondmenu.lightning.force.com/"'
+        ]
     },
     {
         parlance:'booster package opportunity',
@@ -97,6 +148,15 @@ export const Parlance = [
         definedBy: {
             RecordType:'Sales'
         },
-        additionalContext:'These are opportunities that habe an opportunity line item with Booster in the name'
+        additionalContext:[
+            'These are opportunities that have an opportunity line item with Booster in the name'
+        ]
+    },
+    {
+        parlance: 'success team',
+        sObjectType:'User',
+        definedBy: {
+            Profile:'Success'
+        }
     }
 ]

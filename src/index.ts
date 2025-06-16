@@ -109,6 +109,13 @@ server.setRequestHandler(CallToolRequestSchema, async(request):Promise<any> => {
     }
 })
 
+function instruct(instructions:string[]){
+        let new_inst = '';
+        instructions.forEach( instruction => {
+            new_inst += instruction+'\n';
+        });
+        return new_inst;
+}
 
 /**
  * Start the server using stdio transport
