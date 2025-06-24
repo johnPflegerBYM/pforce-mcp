@@ -11,6 +11,15 @@ export const Parlance = [
         ]
     },
     {
+        parlance:'Automated Account Deduction',
+        sObjectType:'Opportunity',
+        definedBy: {
+            RecordType:'Cancellation',
+            Name:'Automated account deduction'
+        },
+        additionalContext: 'These are automated opportunities that get created and closed won'
+    },
+    {
         parlance:'Accounts',
         sObjectType:'Account',
         definedBy: {
@@ -157,6 +166,13 @@ export const Parlance = [
         sObjectType:'User',
         definedBy: {
             Profile:'Success'
+        }
+    },
+    {
+        parlance:'asian leads',
+        sObjectType:'Lead',
+        definedBy: {
+            Asian_Indicator__c:2
         }
     }
 ]
