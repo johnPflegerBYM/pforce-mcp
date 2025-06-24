@@ -172,7 +172,10 @@ export const Parlance = [
         parlance:'asian leads',
         sObjectType:'Lead',
         definedBy: {
-            Asian_Indicator__c:2
-        }
+            Asian_Cuisine_Indicator__c:2
+        },
+        additionalContext: [
+            'the Asian_Cuisine_Indicator__c field is a number 1 or 2. the value of 2 indicates the the lead is an asian restaurant'
+        ]
     }
 ]
